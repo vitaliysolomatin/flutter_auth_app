@@ -1,6 +1,4 @@
-// import 'dart:ffi';
-// import 'package:basic_utils/basic_utils.dart';
-// import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart';
 
 abstract class ValidateRule {
   static const name = 'string';
@@ -20,6 +18,49 @@ class RequiredText extends ValidateRule {
   }
 }
 
+class MinLengthText extends ValidateRule {
+  final String errorMessage;
+  final int minLength;
+
+  MinLengthText({this.minLength = 6, this.errorMessage = 'Field is to short'});
+
+  String validate(value) {
+    if (value.length < minLength) {
+      return errorMessage;
+    }
+    return null;
+  }
+}
+
+class MaxLengthText extends ValidateRule {
+  final String errorMessage;
+  final int maxLength;
+
+  MaxLengthText({this.maxLength = 64, this.errorMessage = 'Field is to long'});
+
+  String validate(value) {
+    if (value.length > maxLength) {
+      return errorMessage;
+    }
+    return null;
+  }
+}
+
+class SameAsText extends ValidateRule {
+  final String errorMessage;
+  final TextEditingController textController;
+
+  SameAsText({
+    this.errorMessage,
+    @required this.textController,
+  });
+
+  String validate(value) {
+    if (value != textController.text) return errorMessage;
+    return null;
+  }
+}
+
 class Validator {
   final List<ValidateRule> rules;
 
@@ -31,14 +72,14 @@ class Validator {
 
   List<String> validate(value) {
     clearErrors();
-    // iterate over rules
+
     rules.forEach((rule) {
       final error = rule.validate(value);
       if (error != null) {
         _errors.add(error);
       }
     });
-    // if there were error return copy of all errors
+
     if (_errors.length > 0) {
       return [..._errors];
     }

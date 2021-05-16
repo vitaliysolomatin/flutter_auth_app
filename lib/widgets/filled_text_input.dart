@@ -1,32 +1,26 @@
-import 'package:auth_app/assets/colors.dart';
 import 'package:auth_app/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class FilledTextInputArguments {
   final String hint;
-  final String labelText;
   final bool obscureText;
   final TextEditingController controller;
   final Validator validator;
-  final int maxLines;
   final List<TextInputFormatter> inputFormatters;
   final TextInputType keyboardType;
 
   FilledTextInputArguments({
-    this.labelText,
     this.hint,
     this.obscureText = false,
     this.controller,
     this.validator,
-    this.maxLines,
     this.inputFormatters,
     this.keyboardType,
   });
 
   FilledTextInputArguments copyWith({
     final String hint,
-    final String labelText,
     final bool obscureText,
     final TextEditingController controller,
     final Validator validator,
@@ -36,10 +30,8 @@ class FilledTextInputArguments {
   }) {
     return FilledTextInputArguments(
       hint: hint ?? this.hint,
-      labelText: labelText ?? this.labelText,
       obscureText: obscureText ?? this.obscureText,
       controller: controller ?? this.controller,
-      maxLines: maxLines ?? this.maxLines,
       validator: validator ?? this.validator,
       inputFormatters: inputFormatters ?? this.inputFormatters,
       keyboardType: keyboardType ?? this.keyboardType,
@@ -49,7 +41,6 @@ class FilledTextInputArguments {
 
 class FilledTextInput extends StatefulWidget {
   final String hint;
-  final String labelText;
   final bool obscureText;
   final TextEditingController controller;
   final Validator validator;
@@ -58,7 +49,6 @@ class FilledTextInput extends StatefulWidget {
   final TextInputType keyboardType;
 
   FilledTextInput({
-    this.labelText,
     this.hint,
     this.obscureText = false,
     this.controller,
@@ -98,12 +88,8 @@ class _FilledTextInputState extends State<FilledTextInput> {
         keyboardType: widget.keyboardType,
         inputFormatters: widget.inputFormatters,
         decoration: InputDecoration(
-          labelStyle: TextStyle(
-            fontSize: 16,
-            color: AuthAppColors.mediumGrey,
-          ),
+          errorMaxLines: 2,
           hintText: widget.hint,
-          labelText: widget.labelText,
         ),
       ),
     );

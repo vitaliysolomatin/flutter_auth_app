@@ -35,7 +35,7 @@ generateTheme() => ThemeData(
           color: AuthAppColors.mediumGrey,
         ),
         errorStyle: TextStyle(
-          color: AuthAppColors.primaryOrange,
+          color: AuthAppColors.errorRed,
         ),
       ),
       textButtonTheme: TextButtonThemeData(),

@@ -27,4 +27,7 @@ class AuthAppColors {
   static MaterialColor primaryOrange = createMaterialColor(
     Color.fromRGBO(255, 177, 157, 1),
   );
+  static MaterialColor errorRed = createMaterialColor(
+    Color.fromRGBO(227, 0, 0, 1),
+  );
 }

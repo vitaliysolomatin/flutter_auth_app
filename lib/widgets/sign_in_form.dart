@@ -2,20 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:auth_app/screens/profile_screen.dart';
 import 'package:auth_app/widgets/filled_text_input.dart';
 import 'package:auth_app/widgets/social_buttons.dart';
+import 'package:auth_app/utils/validators.dart';
 
 class SignInForm extends StatelessWidget {
+  final _signInFormKey = GlobalKey<FormState>();
+
+  final _usernameTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+
+  final _usernameValidator = Validator(rules: [
+    RequiredText(errorMessage: 'Please enter your username'),
+    MaxLengthText(),
+  ]);
+
+  final _passwordValidator = Validator(rules: [
+    RequiredText(errorMessage: 'Please enter your password'),
+    MinLengthText(),
+    MaxLengthText(),
+  ]);
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Form(
+          key: _signInFormKey,
           child: Column(
             children: [
               FilledTextInput(
+                controller: _usernameTextController,
                 hint: 'Username',
+                validator: _usernameValidator,
+                keyboardType: TextInputType.emailAddress,
               ),
               FilledTextInput(
+                controller: _passwordTextController,
                 hint: 'Password',
+                obscureText: true,
+                validator: _passwordValidator,
               ),
             ],
           ),
@@ -40,10 +64,12 @@ class SignInForm extends StatelessWidget {
           height: 60,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                ProfileScreen.path,
-              );
+              if (_signInFormKey.currentState.validate()) {
+                Navigator.pushNamed(
+                  context,
+                  ProfileScreen.path,
+                );
+              }
             },
             child: Text('Login'),
           ),

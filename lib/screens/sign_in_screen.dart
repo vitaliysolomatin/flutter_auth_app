@@ -13,6 +13,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(title),
         actions: <Widget>[
           IconButton(
@@ -40,7 +41,7 @@ class SignInScreen extends StatelessWidget {
                 ),
                 SignInForm(),
                 Container(
-                  height: 70,
+                  height: 30,
                 ),
                 BottomLink(
                   leftLabel: "Don't have an account? ",

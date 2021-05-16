@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SignUpForm(),
                 Container(
-                  height: 70,
+                  height: 30,
                 ),
                 BottomLink(
                   leftLabel: 'Already have an account? ',
