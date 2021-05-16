@@ -42,10 +42,11 @@ generateTheme() => ThemeData(
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all<double>(0),
-          shape:
-              MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-          )),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+          ),
           backgroundColor: MaterialStateProperty.all<Color>(
             AuthAppColors.primaryGreen,
           ),

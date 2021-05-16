@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:auth_app/screens/sign_in_screen.dart';
-import 'package:auth_app/screens/sign_up_screen.dart';
+import 'package:auth_app/widgets/profile_info_block.dart';
+import 'package:auth_app/widgets/user_info_wrapper.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const path = 'profile_screen';
@@ -13,16 +13,24 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        actions: <Widget>[
+          IconButton(
+            icon: Image.asset('assets/images/burger_menu.png'),
+            onPressed: null,
+            padding: EdgeInsets.only(right: 30),
+          ),
+        ],
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('To Sign In'),
-          onPressed: () {
-            Navigator.pushNamed(
-              context,
-              SignInScreen.path,
-            );
-          },
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Column(
+              children: [
+                UserInfoWrapper(),
+                ProfileInfoBlock(),
+              ],
+            ),
+          ],
         ),
       ),
     );
