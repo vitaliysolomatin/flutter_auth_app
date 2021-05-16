@@ -108,34 +108,4 @@ class _FilledTextInputState extends State<FilledTextInput> {
       ),
     );
   }
-
-  // Widget build(BuildContext context) {
-  //   return Padding(
-  //     padding: EdgeInsets.only(bottom: 16),
-  //     child: ClipRRect(
-  //       child: TextFormField(
-  //         validator: (value) {
-  //           if (widget.validator == null) {
-  //             return null;
-  //           }
-  //           final errors = widget.validator.validate(value);
-  //           return errors == null ? null : errors.last;
-  //         },
-  //         controller: widget.controller,
-  //         obscureText: showValue,
-  //         keyboardType: widget.keyboardType,
-  //         inputFormatters: widget.inputFormatters,
-  //         decoration: InputDecoration(
-  //           errorMaxLines: 2,
-  //           labelStyle: TextStyle(
-  //             fontSize: 16,
-  //             color: AuthAppColors.mediumGrey,
-  //           ),
-  //           hintText: widget.hint,
-  //           labelText: widget.labelText,
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
 }

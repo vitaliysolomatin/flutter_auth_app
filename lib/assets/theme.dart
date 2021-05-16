@@ -6,6 +6,9 @@ generateTheme() => ThemeData(
       fontFamily: 'Roboto',
       primarySwatch: AuthAppColors.white,
       appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: AuthAppColors.primaryGrey,
+        ),
         elevation: 0,
         textTheme: TextTheme(
           headline6: TextStyle(

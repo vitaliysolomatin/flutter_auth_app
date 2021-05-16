@@ -1,8 +1,7 @@
-import 'package:auth_app/assets/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_app/screens/sign_up_screen.dart';
-import 'package:auth_app/screens/profile_screen.dart';
-import 'package:auth_app/widgets/filledTextInput.dart';
+import 'package:auth_app/widgets/bottom_link.dart';
+import 'package:auth_app/widgets/sign_in_form.dart';
 
 class SignInScreen extends StatelessWidget {
   static const path = 'sign_in_screen';
@@ -39,114 +38,16 @@ class SignInScreen extends StatelessWidget {
                   ),
                   margin: EdgeInsets.symmetric(vertical: 50),
                 ),
-                Form(
-                  child: Column(
-                    children: [
-                      FilledTextInput(
-                        hint: 'Username',
-                      ),
-                      FilledTextInput(
-                        hint: 'Password',
-                      ),
-                    ],
-                  ),
-                ),
+                SignInForm(),
                 Container(
-                  height: 60,
-                  margin: EdgeInsets.only(bottom: 16),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Spacer(
-                        flex: 1,
-                      ),
-                      Text(
-                        'Forgot your password?',
-                      ),
-                    ],
-                  ),
+                  height: 70,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        ProfileScreen.path,
-                      );
-                    },
-                    child: Text('Login'),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: 16,
-                  ),
-                  child: Text('or'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 60,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 1, color: AuthAppColors.borderGrey),
-                      ),
-                      child: IconButton(
-                        icon: Image.asset('assets/images/facebook_icon.png'),
-                        onPressed: () {},
-                      ),
-                    ),
-                    Container(
-                      height: 60,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 1, color: AuthAppColors.borderGrey),
-                      ),
-                      child: IconButton(
-                        icon: Image.asset('assets/images/twitter_icon.png'),
-                        onPressed: () {},
-                      ),
-                    ),
-                    Container(
-                      height: 60,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 1, color: AuthAppColors.borderGrey),
-                      ),
-                      child: IconButton(
-                        icon: Image.asset('assets/images/linkedin_icon.png'),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Don't have an account? "),
-                    GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () {
-                        Navigator.pushNamed(context, SignUpScreen.path);
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6
-                            .merge(TextStyle(
-                              color: AuthAppColors.primaryOrange,
-                              decoration: TextDecoration.underline,
-                            )),
-                      ),
-                    ),
-                  ],
+                BottomLink(
+                  leftLabel: "Don't have an account? ",
+                  rightLabel: 'Sign Up',
+                  onLinkPress: () {
+                    Navigator.pushNamed(context, SignUpScreen.path);
+                  },
                 ),
               ],
             ),
