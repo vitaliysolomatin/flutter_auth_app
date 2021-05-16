@@ -25,9 +25,10 @@ class UserInfoWrapper extends StatelessWidget {
           'Username',
           style: Theme.of(context).textTheme.headline6.merge(
                 TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
-                    color: AuthAppColors.primaryGrey),
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                  color: AuthAppColors.primaryGrey,
+                ),
               ),
         ),
         Padding(
@@ -97,12 +98,7 @@ class UserInfoWrapper extends StatelessWidget {
                       AuthAppColors.darkGrey,
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      SignInScreen.path,
-                    );
-                  },
+                  onPressed: () {},
                   child: Text('About Me'),
                 ),
               ),
