@@ -6,9 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const path = 'profile_screen';
-
-  ProfileScreen({this.title});
-  final String title;
   final firebaseAuth = FirebaseAuth.instance;
 
   handleSignOut({BuildContext context}) {
@@ -20,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(''),
         actions: <Widget>[
           IconButton(
             icon: Image.asset('assets/images/burger_menu.png'),

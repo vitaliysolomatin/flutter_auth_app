@@ -7,9 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const path = 'sign_up_screen';
-
-  SignUpScreen({this.title});
-  final String title;
   final firebaseAuth = FirebaseAuth.instance;
 
   handleSignUp({String email, String password, BuildContext context}) {
@@ -23,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('Sign Up'),
         actions: <Widget>[
           IconButton(
             icon: Image.asset('assets/images/burger_menu.png'),

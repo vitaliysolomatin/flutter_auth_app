@@ -17,11 +17,11 @@ class AuthApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: generateTheme(),
-      home: SignInScreen(title: 'Sign In'),
+      home: SignInScreen(),
       routes: {
-        SignInScreen.path: (ctx) => SignInScreen(title: 'Sign In'),
-        SignUpScreen.path: (ctx) => SignUpScreen(title: 'Sign Up'),
-        ProfileScreen.path: (ctx) => ProfileScreen(title: ''),
+        SignInScreen.path: (ctx) => SignInScreen(),
+        SignUpScreen.path: (ctx) => SignUpScreen(),
+        ProfileScreen.path: (ctx) => ProfileScreen(),
       },
     );
   }
