@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:auth_app/screens/profile_screen.dart';
 import 'package:auth_app/widgets/filled_text_input.dart';
 import 'package:auth_app/widgets/social_buttons.dart';
 import 'package:auth_app/utils/validators.dart';
 
 class SignUpForm extends StatefulWidget {
+  final Function handleSignUp;
+  SignUpForm({@required this.handleSignUp});
+
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -81,9 +83,10 @@ class _SignUpFormState extends State<SignUpForm> {
           child: ElevatedButton(
             onPressed: () {
               if (_signUpFormKey.currentState.validate()) {
-                Navigator.pushNamed(
-                  context,
-                  ProfileScreen.path,
+                widget.handleSignUp(
+                  email: _emailTextController.text,
+                  password: _passwordTextController.text,
+                  context: context,
                 );
               }
             },
