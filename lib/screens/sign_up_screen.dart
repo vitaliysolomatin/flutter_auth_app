@@ -9,11 +9,15 @@ class SignUpScreen extends StatelessWidget {
   static const path = 'sign_up_screen';
   final firebaseAuth = FirebaseAuth.instance;
 
-  handleSignUp({String email, String password, BuildContext context}) {
-    firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: password);
-
-    Navigator.popAndPushNamed(context, ProfileScreen.path);
+  handleSignUp({String email, String password, BuildContext context}) async {
+    try {
+      await firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      Navigator.popAndPushNamed(context, ProfileScreen.path);
+    } on FirebaseAuthException catch (error) {
+      print('Failed with error code: ${error.code}');
+      print(error.message);
+    }
   }
 
   @override

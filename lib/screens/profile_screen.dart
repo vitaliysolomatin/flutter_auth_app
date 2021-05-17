@@ -8,9 +8,14 @@ class ProfileScreen extends StatelessWidget {
   static const path = 'profile_screen';
   final firebaseAuth = FirebaseAuth.instance;
 
-  handleSignOut({BuildContext context}) {
-    firebaseAuth.signOut();
-    Navigator.popAndPushNamed(context, SignInScreen.path);
+  handleSignOut({BuildContext context}) async {
+    try {
+      await firebaseAuth.signOut();
+      Navigator.popAndPushNamed(context, SignInScreen.path);
+    } on FirebaseAuthException catch (error) {
+      print('Failed with error code: ${error.code}');
+      print(error.message);
+    }
   }
 
   @override
