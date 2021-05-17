@@ -6,7 +6,7 @@ import 'package:auth_app/widgets/sign_in_form.dart';
 class SignInScreen extends StatelessWidget {
   static const path = 'sign_in_screen';
 
-  SignInScreen({Key key, this.title}) : super(key: key);
+  SignInScreen({this.title});
   final String title;
 
   @override

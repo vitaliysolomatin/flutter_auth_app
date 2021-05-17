@@ -6,7 +6,7 @@ import 'package:auth_app/widgets/sign_up_form.dart';
 class SignUpScreen extends StatelessWidget {
   static const path = 'sign_up_screen';
 
-  SignUpScreen({Key key, this.title}) : super(key: key);
+  SignUpScreen({this.title});
   final String title;
 
   @override
@@ -33,8 +33,8 @@ class SignUpScreen extends StatelessWidget {
                 Container(
                   child: Image.asset(
                     'assets/images/lock_box.png',
-                    width: 138,
-                    height: 141,
+                    width: 140,
+                    height: 140,
                   ),
                   margin: EdgeInsets.symmetric(vertical: 50),
                 ),

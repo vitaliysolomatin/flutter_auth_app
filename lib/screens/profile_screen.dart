@@ -5,7 +5,7 @@ import 'package:auth_app/widgets/user_info_wrapper.dart';
 class ProfileScreen extends StatelessWidget {
   static const path = 'profile_screen';
 
-  ProfileScreen({Key key, this.title}) : super(key: key);
+  ProfileScreen({this.title});
   final String title;
 
   @override
