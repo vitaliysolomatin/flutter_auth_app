@@ -1,24 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:auth_app/screens/sign_in_screen.dart';
-import 'package:auth_app/screens/profile_screen.dart';
 import 'package:auth_app/widgets/bottom_link.dart';
 import 'package:auth_app/widgets/sign_up_form.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const path = 'sign_up_screen';
-  final firebaseAuth = FirebaseAuth.instance;
-
-  handleSignUp({String email, String password, BuildContext context}) async {
-    try {
-      await firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      Navigator.popAndPushNamed(context, ProfileScreen.path);
-    } on FirebaseAuthException catch (error) {
-      print('Failed with error code: ${error.code}');
-      print(error.message);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +35,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   margin: EdgeInsets.symmetric(vertical: 50),
                 ),
-                SignUpForm(
-                  handleSignUp: handleSignUp,
-                ),
+                SignUpForm(),
                 Container(
                   height: 30,
                 ),

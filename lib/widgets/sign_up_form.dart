@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:auth_app/widgets/filled_text_input.dart';
 import 'package:auth_app/widgets/social_buttons.dart';
 import 'package:auth_app/utils/validators.dart';
+import 'package:auth_app/services/auth_service.dart';
 
 class SignUpForm extends StatefulWidget {
-  final Function handleSignUp;
-  SignUpForm({@required this.handleSignUp});
-
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -83,7 +81,7 @@ class _SignUpFormState extends State<SignUpForm> {
           child: ElevatedButton(
             onPressed: () {
               if (_signUpFormKey.currentState.validate()) {
-                widget.handleSignUp(
+                AuthFirebase().signUp(
                   email: _emailTextController.text,
                   password: _passwordTextController.text,
                   context: context,

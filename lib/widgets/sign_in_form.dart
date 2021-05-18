@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:auth_app/widgets/filled_text_input.dart';
 import 'package:auth_app/widgets/social_buttons.dart';
 import 'package:auth_app/utils/validators.dart';
+import 'package:auth_app/services/auth_service.dart';
 
 class SignInForm extends StatelessWidget {
-  final Function handleSignIn;
-  SignInForm({@required this.handleSignIn});
-
   final _signInFormKey = GlobalKey<FormState>();
 
   final _usernameTextController = TextEditingController();
@@ -67,7 +65,7 @@ class SignInForm extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {
               if (_signInFormKey.currentState.validate()) {
-                handleSignIn(
+                AuthFirebase().signIn(
                   email: _usernameTextController.text,
                   password: _passwordTextController.text,
                   context: context,

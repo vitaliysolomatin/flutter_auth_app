@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auth_app/assets/colors.dart';
+import 'package:auth_app/services/auth_service.dart';
 
 class UserInfoWrapper extends StatelessWidget {
-  final Function handleSignOut;
-  UserInfoWrapper({@required this.handleSignOut});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -113,7 +111,7 @@ class UserInfoWrapper extends StatelessWidget {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    handleSignOut(context: context);
+                    AuthFirebase().signOut(context: context);
                   },
                   child: Text('Log Out'),
                 ),
